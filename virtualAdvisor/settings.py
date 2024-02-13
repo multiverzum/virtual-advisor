@@ -58,6 +58,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'virtualAdvisor.wsgi.application'
 
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder'
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -110,3 +115,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / "static"
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / "media"

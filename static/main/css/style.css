@@ -1,0 +1,72 @@
+:root {
+    --color-primary: #0050c7;
+    --color-text: #161618;
+    --color-secondary: #717179;
+}
+
+body {
+    color: var(--color-text) !important;
+    font-size: 13pt;
+    font-family: Inter !important;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#logo-img {
+    height: 55px;
+    width: auto;
+}
+
+.navbar .nav-item .nav-link {
+    color: var(--color-secondary) !important;
+    font-weight: 500;
+}
+
+.navbar .nav-item {
+    padding-left: .5rem !important;
+    padding-right: .5rem !important;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-item .nav-link.active,
+.navbar .nav-item .nav-link:hover {
+    color: var(--color-text) !important;
+}
+
+
+.text-secondary {
+    color: var(--color-secondary) !important;
+}
+
+.bg-primary,
+.btn-primary {
+    background-color: var(--color-primary) !important;
+}
+
+.btn-primary {
+    border: none !important;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.fw-500 {
+    font-weight: 500 !important;
+}
+
+.rounded-lg {
+    border-radius: 1.6rem !important;
+}
+
+@media only screen and (max-width: 991px) {
+    .navbar {
+        background-color: white !important;
+    }
+}
+
+.form-control{
+    border-width: 2px;
+    border-radius: 1rem !important;
+}
