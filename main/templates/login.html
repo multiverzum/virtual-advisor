@@ -1,0 +1,49 @@
+{% extends 'layouts/auth-base.html' %}
+{% block content %}
+<div class="container py-3 d-flex" style="max-width: 2500px !important; min-height: 100vh;">
+    <div class="row w-100">
+        <div class="col-md-6">
+            <div class="d-flex flex-row align-items-center justify-content-center h-100 pt-5">
+                <form action="#" class="w-100" style="max-width: 550px;">
+
+                    <img src="/assets/img/logo.jpg" style="max-height: 150px;" alt="">
+
+                    <h2><b>Welcome back</b></h2>
+                    <span class="text-muted small">Sign in to your account</span>
+                
+                    <div class="py-2">
+                        <input class="form-control rounded-lg py-2" type="text" placeholder="Email">
+                    </div>
+                    <div class="py-2">
+                        <input class="form-control rounded-lg py-2" type="password" placeholder="Password">
+                    </div>
+
+                    <div class="py-2">
+                        <button class="btn btn-primary rounded-lg fw-500 w-100"
+                            style="padding-top: .65rem;padding-bottom: .65rem;" type="submit">
+                            Create your free account
+                        </button>
+                    </div>
+
+                    <span class="small">Don't have an account? <a href="/register"
+                            class="fw-500 text-dark">Sign up</a></span>
+
+                </form>
+            </div>
+
+        </div>
+        <div class="col-md-6 p-4 d-none d-md-block">
+
+            <div class="rounded-lg h-100 w-100 p-5" style="background-color: #0050c736">
+
+                <h2 class="p-4 bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quas id, autem voluptate.</h2>
+                <div class="px-4 pt-5 pb-4">
+                    <img src="/assets/img/auth-pages-illustration.svg" class="w-100" alt="">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
