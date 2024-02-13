@@ -13,29 +13,45 @@
                     <div class="row pt-3">
                         <div class="col-md-6">
                             <div class="py-2">
-                                <input class="form-control rounded-lg py-2" type="text" placeholder="First Name">
+                                <input class="form-control rounded-lg py-2" name="first_name" type="text" placeholder="First Name">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="py-2">
-                                <input class="form-control rounded-lg py-2" type="text" placeholder="Last Name">
+                                <input class="form-control rounded-lg py-2" name="last_name" type="text" placeholder="Last Name">
                             </div>
                         </div>
                     </div>
 
                     <div class="py-2">
-                        <input class="form-control rounded-lg py-2" type="text" placeholder="Work Email">
+                        <input class="form-control rounded-lg py-2" name="email" type="text" placeholder="Work Email">
                     </div>
                     <div class="py-2">
-                        <input class="form-control rounded-lg py-2" type="password" placeholder="Password">
+                        <input class="form-control rounded-lg py-2" name="password1" type="password" placeholder="Password">
                     </div>
                     <div class="py-2">
-                        <input class="form-control rounded-lg py-2" type="password" placeholder="Confirm Password">
+                        <input class="form-control rounded-lg py-2" name="password2" type="password" placeholder="Confirm Password">
                     </div>
 
                     <div class="py-2">
                         <span class="small text-muted">By signing up, you agree to our Terms, Policy and GDPR</span>
                     </div>
+
+                    {% for field in registration_form %}
+                    <p>
+                        {% for error in field.errors %}
+                    <p class="text-danger">
+                        {{ error }}
+                    </p>
+                    {% endfor %}
+                    </p>
+                    {% endfor %}
+
+                    {% if registration_form.non_field_errors %}
+                    <div class="text-danger">
+                        <p>{{registration_form.non_field_errors}}</p>
+                    </div>
+                    {% endif %}
 
                     <div class="py-2">
                         <button class="btn btn-primary rounded-lg fw-500 w-100"

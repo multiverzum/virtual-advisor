@@ -10,7 +10,7 @@ class RegistrationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('email', 'username', 'password1', 'password2', 'first_name', 'last_name')
+        fields = ('email', 'password1', 'password2', 'first_name', 'last_name')
 
     def clean_email(self):
         email = self.cleaned_data.get('email').lower()
@@ -18,14 +18,9 @@ class RegistrationForm(UserCreationForm):
             raise forms.ValidationError(f"Email {email} is already in use.")
         return email
 
-    def clean_username(self):
-        username = self.cleaned_data.get('username')
-        if User.objects.filter(username=username).exists():
-            raise forms.ValidationError(f"Username {username} is already in use.")
-        return username
-
     def save(self, commit=True):
         user = super().save(commit=False)
+        user.username = user.email.replace("@gmail.com", "")
         user.first_name = self.cleaned_data['first_name']
         user.last_name = self.cleaned_data['last_name']
         
@@ -33,6 +28,7 @@ class RegistrationForm(UserCreationForm):
             user.save()
 
         return user
+
 
 class UserAuthenticationForm(forms.ModelForm):
 

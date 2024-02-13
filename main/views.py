@@ -17,7 +17,6 @@ def registerView(request, *args, **kwargs):
         return HttpResponse(f"You are already authenticated as {user.email}.")
     context = {}
 
-
     if request.POST:
         form = RegistrationForm(request.POST)
         if form.is_valid():
@@ -26,14 +25,10 @@ def registerView(request, *args, **kwargs):
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
             login(request, account)
-
-            sendChatWelcomeMessage(request)
             
-            return redirect("/verify-email/"+email)
-
+            return redirect("/")
         else:
             context['registration_form'] = form
-
 
     return render(request, 'register.html', context)
 
