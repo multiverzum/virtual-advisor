@@ -4,7 +4,7 @@
     <div class="row w-100">
         <div class="col-md-6">
             <div class="d-flex flex-row align-items-center justify-content-center h-100 pt-5">
-                <form action="#" class="w-100" style="max-width: 550px;">
+                <form action="#" method="POST" class="w-100" style="max-width: 550px;">{% csrf_token %}
 
                     <img src="/static/main/img/logo.jpg" style="max-height: 150px;" alt="">
 
@@ -12,16 +12,33 @@
                     <span class="text-muted small">Sign in to your account</span>
                 
                     <div class="py-2">
-                        <input class="form-control rounded-lg py-2" type="text" placeholder="Work Email">
+                        <input class="form-control rounded-lg py-2" name="email" type="text" placeholder="Work Email">
                     </div>
                     <div class="py-2">
-                        <input class="form-control rounded-lg py-2" type="password" placeholder="Password">
+                        <input class="form-control rounded-lg py-2" name="password" type="password" placeholder="Password">
                     </div>
+
+                    {% for field in login_form %}
+                    <p>
+                        {% for error in field.errors %}
+                    <p class="text-danger">
+                        {{ error }}
+                    </p>
+                    {% endfor %}
+                    </p>
+                    {% endfor %}
+        
+                    {% if login_form.non_field_errors %}
+                    <div class="text-danger">
+                        <p>{{login_form.non_field_errors}}</p>
+                    </div>
+                    {% endif %}
+        
 
                     <div class="py-2">
                         <button class="btn btn-primary rounded-lg fw-500 w-100"
                             style="padding-top: .65rem;padding-bottom: .65rem;" type="submit">
-                            Create your free account
+                            Login
                         </button>
                     </div>
 

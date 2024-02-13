@@ -1,4 +1,6 @@
 {% extends 'layouts/base.html' %}
+{% load static %}
+
 {% block content %}
 
 <link rel="stylesheet" href="{% static '/main/css/home.css' %}">
@@ -12,10 +14,22 @@
             Cloud Environment
         </h4>
 
+        {% if request.user.is_authenticated %}
+
         <div class="text-center py-3">
-            <a href="/register" class="btn btn-primary px-3 py-2 fw-500"><span>Create a free account</span>
+            <a href="/register" class="btn btn-basic border rounded px-3 py-2 fw-500"><span>Launch The Application</span>
             </a>
         </div>
+        
+        {% else %}
+        
+        <div class="text-center py-3">
+            <a href="/register" class="btn btn-primary rounded px-3 py-2 fw-500"><span>Create a free account</span>
+            </a>
+        </div>
+
+
+        {% endif %}
 
         <div class="pt-4">
             <img src="/static/main/img/example1.png" class="w-100 img-fluid rounded-lg" alt="">
@@ -24,22 +38,22 @@
 
 
     <div class="pt-5">
-        <h2>Hybrid Knowledge Base:</h2>
+        <h3>Hybrid Knowledge Base:</h3>
         <span>ADVAISE combines the company's private databases with publicly available document databases
             (Legifrance, EUR-Lex, ECB, EBA, ACPR, and more).
         </span>
     </div>
 
     <div class="pt-5">
-        <h2>Document-Enabled Interface:</h2>
+        <h3>Document-Enabled Interface:</h3>
         <span>ADVAISE extends its functionality by allowing users to not only get answers but also visualize and
             source documents directly.
         </span>
     </div>
 
     <div class="pt-5">
-        <h2>Streamline your workflow in a click:
-        </h2>
+        <h3>Streamline your workflow in a click:
+        </h3>
         <span>ADVAISE enables one-click creation of emails, Powerpoint presentations, and Word reports, plus offers
             a collaborative space for team work.
 
@@ -47,31 +61,31 @@
     </div>
 
     <div class="pt-5">
-        <h2>Secure and dedicated platform:
-        </h2>
+        <h3>Secure and dedicated platform:
+        </h3>
         <span>The application and data are stored on company servers or with reliable Cloud Service Provider (CSP)
         </span>
     </div>
 
     <div class="pt-5">
-        <h2>Data privacy and security:
-        </h2>
+        <h3>Data privacy and security:
+        </h3>
         <span>The company's data is not shared with the providers of the LLMs. Execution takes place locally on
             secure dedicated servers.
         </span>
     </div>
 
     <div class="pt-5">
-        <h2>Accurate and sourced answers:
-        </h2>
+        <h3>Accurate and sourced answers:
+        </h3>
         <span>The responses are generated from the company's private Knowledge Base, making the answers more
             accurate and relevant to the users.
         </span>
     </div>
 
     <div class="pt-5">
-        <h2>Regulatory compliance:
-        </h2>
+        <h3>Regulatory compliance:
+        </h3>
         <span>The RAG solution adheres to regulatory standards, including the AI Act.</span>
     </div>
 
