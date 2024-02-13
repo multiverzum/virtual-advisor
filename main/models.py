@@ -42,10 +42,15 @@ class User(AbstractBaseUser):
     ADMIN_ROLE = "admin"
     CUSTOMER_ROLE = 'customer'
 
+    APPLICATION_ACCESS_STATUS_PENDING = 'pending'
+    APPLICATION_ACCESS_STATUS_ALLOWED = 'allowed'
+    APPLICATION_ACCESS_STATUS_DECLINED = 'declined'
+
     email = models.EmailField(max_length=60, unique=True, null=False)
     username = models.CharField(max_length=50, unique=True, null=False)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
+    application_access = models.CharField(max_length=50, default=APPLICATION_ACCESS_STATUS_PENDING)
     last_login = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=False)

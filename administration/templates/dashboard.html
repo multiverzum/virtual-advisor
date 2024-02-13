@@ -1,0 +1,325 @@
+{% extends 'layouts/admin-base.html' %}
+{% load static %}
+
+{% block title %}Dashboard - Multiverzum{% endblock %}
+
+{% block content %}
+
+<div class="container mt-2">
+
+    {% block adminHeroSection %}
+    {% include 'partials/admin-hero-section.html' %}
+    {% endblock %}
+
+    <div class="container mt-1">
+        <div class="row">
+            <div class="col-md-7 pr-2">
+
+                <div class="row">
+                    <div class="col-md-6 pt-3">
+                        <div class="card bg-app border-0 shadow-sm rounded-lg py-2">
+                            <div class="d-flex h-100 justify-content-center align-items-center p-2">
+            
+                                <div class="ps-3">
+                                    <div class="rounded-circle p-2" style="background-color: rgb(205, 229, 236);">
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28px" height="28px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24"/>
+                                                <path d="M5,19 L20,19 C20.5522847,19 21,19.4477153 21,20 C21,20.5522847 20.5522847,21 20,21 L4,21 C3.44771525,21 3,20.5522847 3,20 L3,4 C3,3.44771525 3.44771525,3 4,3 C4.55228475,3 5,3.44771525 5,4 L5,19 Z" fill="var(--color-primary)" fill-rule="nonzero"/>
+                                                <path d="M8.7295372,14.6839411 C8.35180695,15.0868534 7.71897114,15.1072675 7.31605887,14.7295372 C6.9131466,14.3518069 6.89273254,13.7189711 7.2704628,13.3160589 L11.0204628,9.31605887 C11.3857725,8.92639521 11.9928179,8.89260288 12.3991193,9.23931335 L15.358855,11.7649545 L19.2151172,6.88035571 C19.5573373,6.44687693 20.1861655,6.37289714 20.6196443,6.71511723 C21.0531231,7.05733733 21.1271029,7.68616551 20.7848828,8.11964429 L16.2848828,13.8196443 C15.9333973,14.2648593 15.2823707,14.3288915 14.8508807,13.9606866 L11.8268294,11.3801628 L8.7295372,14.6839411 Z" fill="var(--color-primary)" fill-rule="nonzero" opacity="0.3"/>
+                                            </g>
+                                        </svg></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="w-100 ps-4 justify-content-center align-items-center p-2">
+                                    <p class="m-0 text-muted">Users Registered</p>
+                                    <h2 class="bold">{{ registered_users }} <span><svg
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <polygon points="0 0 24 0 24 24 0 24" />
+                                            <rect fill="var(--color-success)" opacity="0.3" x="11" y="5" width="2"
+                                                height="14" rx="1" />
+                                            <path
+                                                d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z"
+                                                fill="var(--color-success)" fill-rule="nonzero" />
+                                        </g>
+                                    </svg></span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-6 pt-3">
+                        <div class="card bg-app border-0 shadow-sm rounded-lg py-2">
+                            <div class="d-flex h-100 align-items-center p-2">
+            
+                                <div class="ps-3">
+                                    <div class="rounded-circle p-2" style="background-color: rgb(236, 205, 209);">
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28px" height="28px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24"/>
+                                                <path d="M8,13.1668961 L20.4470385,11.9999863 L8,10.8330764 L8,5.77181995 C8,5.70108058 8.01501031,5.63114635 8.04403925,5.56663761 C8.15735832,5.31481744 8.45336217,5.20254012 8.70518234,5.31585919 L22.545552,11.5440255 C22.6569791,11.5941677 22.7461882,11.6833768 22.7963304,11.794804 C22.9096495,12.0466241 22.7973722,12.342628 22.545552,12.455947 L8.70518234,18.6841134 C8.64067359,18.7131423 8.57073936,18.7281526 8.5,18.7281526 C8.22385763,18.7281526 8,18.504295 8,18.2281526 L8,13.1668961 Z" fill="var(--color-danger)"/>
+                                                <path d="M4,16 L5,16 C5.55228475,16 6,16.4477153 6,17 C6,17.5522847 5.55228475,18 5,18 L4,18 C3.44771525,18 3,17.5522847 3,17 C3,16.4477153 3.44771525,16 4,16 Z M1,11 L5,11 C5.55228475,11 6,11.4477153 6,12 C6,12.5522847 5.55228475,13 5,13 L1,13 C0.44771525,13 6.76353751e-17,12.5522847 0,12 C-6.76353751e-17,11.4477153 0.44771525,11 1,11 Z M4,6 L5,6 C5.55228475,6 6,6.44771525 6,7 C6,7.55228475 5.55228475,8 5,8 L4,8 C3.44771525,8 3,7.55228475 3,7 C3,6.44771525 3.44771525,6 4,6 Z" fill="var(--color-danger)" opacity="0.3"/>
+                                            </g>
+                                        </svg></span>
+                                    </div>
+                                </div>
+            
+                                <div class="w-100 ps-4 justify-content-center align-items-center p-2">
+                                    <p class="m-0 text-muted">Users Accepted</p>
+                                    <h2 class="bold">{{ application_allowed_users }} <span><svg
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <polygon points="0 0 24 0 24 24 0 24" />
+                                            <rect fill="var(--color-success)" opacity="0.3" x="11" y="5" width="2"
+                                                height="14" rx="1" />
+                                            <path
+                                                d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z"
+                                                fill="var(--color-success)" fill-rule="nonzero" />
+                                        </g>
+                                    </svg></span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="row">
+                    <div class="col-md-6 pt-3">
+                        <div class="card bg-app border-0 shadow-sm rounded-lg py-2">
+                            <div class="d-flex h-100 align-items-center p-2">
+            
+                                <div class="ps-3">
+                                    <div class="rounded-circle p-2" style="background-color: rgb(205, 236, 226);">
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28px" height="28px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <polygon points="0 0 24 0 24 24 0 24"/>
+                                                <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z" fill="var(--color-success)" fill-rule="nonzero" opacity="0.3"/>
+                                                <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="var(--color-success)" fill-rule="nonzero"/>
+                                            </g>
+                                        </svg></span>
+                                    </div>
+                                </div>
+            
+                                <div class="w-100 ps-4 justify-content-center align-items-center p-2">
+                                    <p class="m-0 text-muted">Users Declined</p>
+                                    <h2 class="bold">{{ application_declined_users }} <span
+                                        ><svg
+                                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <polygon points="0 0 24 0 24 24 0 24" />
+                                                    <rect fill="var(--color-success)" opacity="0.3" x="11" y="5" width="2"
+                                                        height="14" rx="1" />
+                                                    <path
+                                                        d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z"
+                                                        fill="var(--color-success)" fill-rule="nonzero" />
+                                                </g>
+                                            </svg></span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-6 pt-3">
+                        <div class="card bg-app border-0 shadow-sm rounded-lg py-2">
+                            <div class="d-flex h-100 align-items-center p-2">
+            
+                                <div class="ps-3">
+                                    <div class="rounded-circle p-2" style="background-color: rgb(229, 205, 236);">
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28px" height="28px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24"/>
+                                                <polygon fill="purple" opacity="0.3" points="6 3 18 3 20 6.5 4 6.5"/>
+                                                <path d="M6,5 L18,5 C19.1045695,5 20,5.8954305 20,7 L20,19 C20,20.1045695 19.1045695,21 18,21 L6,21 C4.8954305,21 4,20.1045695 4,19 L4,7 C4,5.8954305 4.8954305,5 6,5 Z M9,9 C8.44771525,9 8,9.44771525 8,10 C8,10.5522847 8.44771525,11 9,11 L15,11 C15.5522847,11 16,10.5522847 16,10 C16,9.44771525 15.5522847,9 15,9 L9,9 Z" fill="purple"/>
+                                            </g>
+                                        </svg></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="w-100 ps-4 justify-content-center align-items-center p-2">
+                                    <p class="m-0 text-muted">Active Users</p>
+                                    <h2 class="bold">{{ active_users }} <span
+                                        ><svg
+                                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <polygon points="0 0 24 0 24 24 0 24" />
+                                                    <rect fill="var(--color-success)" opacity="0.3" x="11" y="5" width="2"
+                                                        height="14" rx="1" />
+                                                    <path
+                                                        d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z"
+                                                        fill="var(--color-success)" fill-rule="nonzero" />
+                                                </g>
+                                            </svg></span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                </div>
+            
+
+                <div class="card bg-app rounded-lg shadow-sm border-0 px-2 mt-3">
+                    <h5 class="bold px-3 pt-3">User Growth</h5>
+                        <div class="p-3">
+                            <canvas id="lineChart"></canvas>
+                        </div>
+                </div>
+
+                <div class="card p-4 bg-app border-0 rounded-lg shadow-sm mt-3">
+                    <h5 class="bold">Sales</h5>
+                    <div class="d-flex justify-content-between py-2">
+                        <span>Orders Requested</span> <span class="fw-500">{{ total_orders }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between py-2">
+                        <span>Orders Completed</span> <span class="fw-500">{{ orders_completed }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between py-2">
+                        <span>Orders Declined</span> <span class="fw-500">{{ orders_declined }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between py-2">
+                        <span>Orders awaiting response</span> <span class="fw-500">{{ orders_awaiting_response }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between py-2">
+                        <span>Earnings per month</span> <span class="text-primary fw-500">{{ average_earnings_per_month }}</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-5 pl-2 pt-3">
+                <div class="card bg-app rounded-lg shadow-sm border-0 px-2">
+                    <h5 class="bold px-3 pt-3">Location Stats </h4>
+                        <div class="d-flex w-100 h-100 align-items-center justify-content-center p-3">
+                            <canvas id="world-map"></canvas>
+                        </div>
+                </div>
+                <div class="card bg-app border-0 shadow-sm rounded-lg w-100 px-2 mt-3" style="height: fit-content;">
+                    <h5 class="bold px-3 pt-3">Roles</h4>
+                    <div class="px-5 pb-5 pt-3">
+                        <div class="d-flex justify-content-center w-100 m-auto" style="max-width: 400px;">
+                            <canvas id="rolePercentageChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://unpkg.com/chartjs-chart-geo"></script>
+
+<script>
+    var xValues = ["Admins", "Customers"];
+    var yValues = ['{{ admin_count }}', '{{ customer_count }}'];
+    var barColors = [
+      "#b91d47",
+      "#2b5797"
+    ];
+    
+    new Chart("rolePercentageChart", {
+      type: "doughnut",
+      data: {
+        labels: xValues,
+        datasets: [{
+          backgroundColor: barColors,
+          data: yValues
+        }]
+      },
+      options: {
+        title: {
+          display: true,
+          text: "World Wide Wine Production 2018"
+        }
+      }
+    });
+</script>
+
+<script>
+    const lineCtx = document.getElementById('lineChart').getContext('2d');
+
+    new Chart(lineCtx, {
+        type: "line",
+        data: {
+            labels: {{ userGrowthData.labels | safe }},
+        datasets: [{
+            label: 'Number of users',
+            backgroundColor: "#58a2e396",
+            borderColor: "#58A2E3",
+            fill: true,
+            data: {{ userGrowthData.values }}
+            }]
+        },
+        options: {
+        scales: {
+            xAxes: [{
+                type: 'time',
+                time: {
+                    unit: 'month',
+                    displayFormats: {
+                        month: 'MMM YYYY'
+                    }
+                }
+            }],
+            yAxes: [{
+                gridLines: {
+                    zeroLineColor: "#58A2E3",
+                    zeroLineWidth: 2,
+                    drawBorder: false
+                }
+            }]
+        },
+        elements: {
+            line: {
+                tension: 0
+            }
+        }
+    }
+    });
+</script>
+
+<script>
+    fetch('https://unpkg.com/us-atlas/states-10m.json').then((r) => r.json()).then((ba) => {
+        const nation = ChartGeo.topojson.feature(ba, ba.objects.nation).features[0];
+        const states = ChartGeo.topojson.feature(ba, ba.objects.states).features;
+
+        const chart = new Chart(document.getElementById("world-map").getContext("2d"), {
+            type: 'choropleth',
+            data: {
+            labels: states.map((d) => d.properties.name),
+            datasets: [{
+                label: 'States',
+                outline: nation,
+                data: states.map((d) => ({feature: d, value: Math.random() * 10})),
+            }]
+            },
+            options: {
+            plugins: {
+                legend: {
+                display: false
+                },
+            },
+            scales: {
+                projection: {
+                axis: 'x',
+                projection: 'albersUsa'  
+                },
+                color: {
+                axis: 'x',
+                quantize: 5,
+                legend: {
+                    position: 'bottom-right',
+                    align: 'bottom'
+                },
+                }
+            },
+            }
+        });
+    });
+</script>
+
+{% endblock %}

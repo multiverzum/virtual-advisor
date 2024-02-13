@@ -2,6 +2,9 @@
     --color-primary: #0050c7;
     --color-text: #161618;
     --color-secondary: #717179;
+    --color-success: #049f61;
+    --color-dark: #161618;
+    --color-danger: #cf004c;
 }
 
 body {

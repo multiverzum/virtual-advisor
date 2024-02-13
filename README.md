@@ -22,20 +22,16 @@
     python manage.py migrate
     ```
 
-6. **Create a superuser:** 
-    ```
-    python manage.py createsuperuser
-    ```
-
-7. **Optional:** 
+6. **Optional:** 
     - Make your user have admin privileges by loading the user table and setting `is_admin` to `1`.
 
-8. **Run the app:** 
+7. **Run the app:** 
     ```
     python manage.py runserver
     ```
 
 ## Usage:
 - After completing the installation steps, access the admin interface by navigating to `http://localhost:8000/admin/` in your web browser.
-- Log in with the superuser credentials created in step 6 to start using the application.
+- Create an account and login
+- In the database make that user an admin by setting the column is_admin to 1
 
