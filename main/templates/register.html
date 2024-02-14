@@ -6,7 +6,7 @@
             <div class="d-flex flex-row align-items-center justify-content-center h-100 pt-5">
                 <form action="#" method="POST">{% csrf_token %}
 
-                    <img src="/static/main/img/logo.jpg" style="max-height: 150px;" alt="">
+                    <img src="/static/main/img/logo.png" style="max-height: 135px;" alt="">
 
                     <h2><b>Create your account</b></h2>
                     <span class="text-muted small">Enter your details to sign up</span>
@@ -25,6 +25,9 @@
 
                     <div class="py-2">
                         <input class="form-control rounded-lg py-2" name="email" type="text" placeholder="Work Email">
+                    </div>
+                    <div class="py-2">
+                        <input class="form-control rounded-lg py-2" name="phone_number" type="text" placeholder="Phone Number">
                     </div>
                     <div class="py-2">
                         <input class="form-control rounded-lg py-2" name="password1" type="password" placeholder="Password">

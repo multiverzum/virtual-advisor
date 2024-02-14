@@ -50,6 +50,7 @@ class User(AbstractBaseUser):
     username = models.CharField(max_length=50, unique=True, null=False)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
+    phone_number = models.CharField(max_length=30, null=True)
     application_access = models.CharField(max_length=50, default=APPLICATION_ACCESS_STATUS_PENDING)
     last_login = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)

@@ -1,11 +1,12 @@
 :root {
-    --color-primary: #0050c7;
+    --color-primary: #006585;
     --color-text: #161618;
     --color-secondary: #717179;
     --color-success: #049f61;
     --color-dark: #161618;
     --color-danger: #cf004c;
     --color-gray: #ededf1;
+    --color-light: #f8f8f8;
 }
 
 body {
@@ -17,7 +18,7 @@ body {
 }
 
 #logo-img {
-    height: 55px;
+    height: 50px;
     width: auto;
 }
 
