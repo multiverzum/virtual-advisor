@@ -48,6 +48,10 @@ body {
     background-color: var(--color-primary) !important;
 }
 
+.bg-gray{
+    background-color: var(--color-gray) !important;
+}
+
 .btn-primary {
     border: none !important;
 }
@@ -79,4 +83,8 @@ body {
     height: 35px;
     width: 35px;
     border-radius: 50%;
+}
+
+.pointer{
+    cursor: pointer;
 }

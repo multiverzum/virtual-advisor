@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from .models import User
 from .forms import RegistrationForm
 from .forms import UserAuthenticationForm
+from django.contrib import messages
 
 def getHome(request):
     return render(request, 'home.html')
@@ -26,6 +27,8 @@ def registerView(request, *args, **kwargs):
             account = authenticate(email=email, password=raw_password)
             login(request, account)
             
+            messages.info(request, 'Account in review')
+
             return redirect("/")
         else:
             context['registration_form'] = form

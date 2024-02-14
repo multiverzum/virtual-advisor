@@ -6,41 +6,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item d-flex align-items-center">
-                <a href="/">
+                <a href="/" class="pe-2">
                     <img src="/static/main/img/logo.jpg" id="logo-img" alt="">
                 </a>
             </li>
 
-            <div class="align-items-center px-2 d-flex">
-                <div class="dropdown" style="white-space: nowrap;">
-
-                    <img class="img-fluid rounded countrySelectorToggle" type="button" aria-haspopup="true"
-                        aria-expanded="false" style="width: 35px; aspect-ratio: 35/23 auto;" alt="Country Flag"
-                        src="/static/main/img/flag_icons/US.svg" />
-
-                    <i class="fa-solid fa-caret-down pr-2 countrySelectorToggle" type="button"></i>
-
-                    <div class="dropdown-menu bg-app shadow rounded-lg border-0 p-3 countrySelector"
-                        aria-labelledby="countrySelector">
-
-                        <span class="dropdown-item"><b>Select country/language</b></span>
-
-                        <form class="language-form" method="post">
-                            <input type="hidden" name="language" value="ba">
-                            <input type="hidden" name="currency" value="BAM">
-                            <button class="dropdown-item py-2 pr-5" type="submit"><img class="pr-2 rounded"
-                                    alt="Bosnia Flag" src="/static/main/img/flag_icons/FR.svg"
-                                    style="width: 35px;"><span class="ps-2">French</span></button>
-                        </form>
-                        <form class="language-form" method="post">
-                            <input type="hidden" name="language" value="en">
-                            <input type="hidden" name="currency" value="USD">
-                            <button class="dropdown-item py-2 pr-5" type="submit"><img class="pr-2 rounded"
-                                    alt="US Flag" src="/static/main/img/flag_icons/US.svg" style="width: 35px;"><span
-                                    class="ps-2">English</span></button>
-                        </form>
-                    </div>
-                </div>
+            <div class="align-items-center ps-2 pe-5 d-flex">
+                {% include 'components/language-selector.html' %}
             </div>
 
 
