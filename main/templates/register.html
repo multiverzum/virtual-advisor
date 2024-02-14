@@ -25,9 +25,10 @@
 
                     <div class="py-2">
                         <input class="form-control rounded-lg py-2" name="email" type="text" placeholder="Work Email">
+                        <div id="error-note" class="text-danger small pt-2" style="display: none"></div>
                     </div>
                     <div class="py-2">
-                        <input class="form-control rounded-lg py-2" name="phone_number" type="text" placeholder="Phone Number">
+                        <input class="form-control rounded-lg py-2 small" name="phone_number" type="text" placeholder="Phone Number">
                     </div>
                     <div class="py-2">
                         <input class="form-control rounded-lg py-2" name="password1" type="password" placeholder="Password">
@@ -85,4 +86,29 @@
         </div>
     </div>
 </div>
+
+
+
+<script>
+    $(document).ready(function() {
+    $('input[name="email"]').on('input', function() {
+        var email = $(this).val();
+        
+        var forbiddenDomains = ['gmail.com', 'yahoo.com'];
+        
+        var containsForbiddenDomain = forbiddenDomains.some(function(domain) {
+            return email.endsWith('@' + domain);
+        });
+        
+        if (containsForbiddenDomain) {
+            $('#error-note').text('Please enter a work email address only.').show();
+        } else {
+            $('#error-note').hide();
+        }
+    });
+});
+
+</script>
+
+
 {% endblock %}
