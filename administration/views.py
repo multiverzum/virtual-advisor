@@ -57,3 +57,30 @@ def getUsersGrowthData():
 
     return {'labels': labels, 'values': values}
 
+
+def usersView(request):
+
+    new_users = User.objects.filter(application_access=User.APPLICATION_ACCESS_STATUS_PENDING, is_deleted=0)
+    asigned_access_users = User.objects.exclude(application_access=User.APPLICATION_ACCESS_STATUS_PENDING, is_deleted=0)
+
+    return render(request, 'users.html', context={'new_users': new_users, 'asigned_access_users':asigned_access_users})
+
+def allowUserApplicationAccess(request):
+
+    user_id = request.POST.get('user_id')
+    user = User.objects.get(id=user_id)
+
+    user.application_access = User.APPLICATION_ACCESS_STATUS_ALLOWED
+    user.save()
+
+    return redirect('/administration/users')
+
+def declineUserApplicationAccess(request):
+
+    user_id = request.POST.get('user_id')
+    user = User.objects.get(id=user_id)
+
+    user.application_access = User.APPLICATION_ACCESS_STATUS_DECLINED
+    user.save()
+
+    return redirect('/administration/users')

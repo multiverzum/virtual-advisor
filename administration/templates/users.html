@@ -1,0 +1,147 @@
+{% extends 'layouts/admin-base.html' %}
+{% load static %}
+
+{% block title %}Dashboard - Multiverzum{% endblock %}
+
+{% block content %}
+
+<style>
+    th,
+    td {
+        padding: .5rem;
+    }
+
+    tr:hover, tr:nth-child(even) {
+        background-color: var(--color-gray) !important;
+    }
+
+    table th,
+    td {
+        white-space: nowrap;
+    }
+
+    .table-responsive {
+        overflow: scroll;
+        border-collapse: collapse;
+    }
+</style>
+
+<div class="container mt-2">
+
+    <h4 class="ps-3 bold pt-5 pb-3">New users</h4>
+
+    <div class="container mt-1">
+        <div class="rounded p-3 shadow-sm bg-white w-100 overflow-auto">
+            {% if new_users %}
+            <table class="table-responsive mt-3 w-100">
+                <thead>
+                    <tr>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Work Email</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Access</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for user in new_users %}
+
+                    <tr>
+                        <td>{{ user.first_name }}</td>
+                        <td>{{ user.last_name }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            {% if user.is_admin %}
+                            <span class="badge bg-danger">Admin</span>
+                            {% else %}
+                            <span class="badge bg-success">Customer</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div class="d-flex">
+                                <form action="{% url 'admin.allow_user_application_access' %}" method="POST">{% csrf_token %}
+                                    <input type="hidden" value="{{ user.id }}" name="user_id" />
+                                    <button class="btn btn-basic bg-gray rounded text-success">
+                                    <i class="fa-solid fa-check"></i>
+                                </button>
+                                </form>
+    
+                                <form action="{% url 'admin.decline_user_application_access' %}" method="POST">{% csrf_token %}
+                                    <input type="hidden" value="{{ user.id }}" name="user_id" />
+                                    <button class="btn btn-basic bg-gray rounded text-danger">
+                                    <i class="fa-solid fa-x"></i>
+                                </button>
+                                </form>
+                            </div>
+                           
+                            
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <span class="text-center m-auto d-block">No new users</span>
+            {% endif %}
+        </div>
+    </div>
+
+    <h4 class="ps-3 bold pt-5 pb-3">Users with asigned access</h4>
+
+    <div class="container mt-1">
+        <div class="rounded p-3 shadow-sm bg-white w-100 overflow-auto">
+            {% if asigned_access_users %}
+            <table class="table-responsive mt-3 w-100">
+                <thead>
+                    <tr>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Work Email</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Access</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for user in asigned_access_users %}
+
+                    <tr>
+                        <td>{{ user.first_name }}</td>
+                        <td>{{ user.last_name }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            {% if user.is_admin %}
+                            <span class="badge bg-danger">Admin</span>
+                            {% else %}
+                            <span class="badge bg-success">Customer</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if user.application_access == 'allowed' %}
+                            <span class="badge bg-success">Allowed</span>
+                            {% else %}
+                            <span class="badge bg-danger">Declined</span>
+                            {% endif %}
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <span class="text-center m-auto d-block">No users have access asigned</span>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
