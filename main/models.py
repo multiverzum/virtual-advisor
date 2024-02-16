@@ -76,3 +76,19 @@ class User(AbstractBaseUser):
 
     class Meta:
         db_table = "user"
+
+
+class Translation(BaseModel):
+
+    phrase = models.CharField(max_length=2900)
+    language = models.CharField(max_length=20, default="ba")
+    translation = models.CharField(max_length=2900)
+
+    REQUIRED_FIELDS = [phrase, translation]
+
+
+    def __str__(self):
+        return self.translation
+    
+    class Meta:
+        db_table = "translation"

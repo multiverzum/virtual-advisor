@@ -7,6 +7,10 @@ from .models import User
 from .forms import RegistrationForm
 from .forms import UserAuthenticationForm
 from django.contrib import messages
+from django.utils.translation import activate
+from django.conf import settings
+from .models import Translation
+from django.utils.translation import activate
 
 def getHome(request):
     return render(request, 'home.html')
@@ -72,3 +76,14 @@ def get_redirect_if_exists(request):
 def logout_view(request):
     logout(request)
     return redirect("home")
+
+
+
+def set_local_language(request):
+    language = request.POST.get('language', 'en')
+
+    activate(language)
+    
+    request.session['django_language'] = language
+
+    return HttpResponse('Language set successfully.')
