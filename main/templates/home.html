@@ -11,18 +11,17 @@
     <div class="hero-section">
         {% if request.user.is_authenticated %}
         <h2 class="d-flex justify-content-center align-items-center">
-            Hello, {{ request.user.username }}!
+            {{ "Hello,"|translate:selectedLanguage }} {{ request.user.username }}!
             <img src="/static/main/img/animations/hand_wave.gif" style="max-height: 75px;" alt="">
 
         </h2>
-        <h5 class="py-3" style="font-weight: 400;">Welcome to our Secure AI-powered Knowledge Base Discovery for Corporates. We are just about to launch our 
-            AI web application and we are glad to have you on-board!
+        <h5 class="py-3" style="font-weight: 400;">
+            {{ "Welcome to our Secure AI-powered Knowledge Base Discovery for Corporates. We are just about to launch our AI web application and we are glad to have you on-board!"|translate:selectedLanguage }}
         </h5>
         {% else %}
-        <h1 class="text-center bold">Secure AI-powered Knowledge Base Discovery for Corporates</h1>
-        <h4 class="text-secondary py-3" style="font-weight: 400;">Securely Analyze, Compare, and Summarize Documents
-            with AI in a Private
-            Cloud Environment
+        <h1 class="text-center bold">{{ "Secure AI-powered Knowledge Base Discovery for Corporates"|translate:selectedLanguage }}</h1>
+        <h4 class="text-secondary py-3" style="font-weight: 400;">
+            {{ "Securely Analyze, Compare, and Summarize Documents with AI in a Private Cloud Environment"|translate:selectedLanguage }}
         </h4>
         {% endif %}
 
@@ -30,14 +29,14 @@
 
         <div class="text-center py-3">
             <a href="/register" class="btn btn-basic bg-white border shadow-sm rounded px-3 py-2 fw-500"><span><i
-                        class="fa-solid fa-rocket pe-1"></i> Launch The Assistant</span>
+                class="fa-solid fa-rocket pe-1"></i> {{ "Launch The Assistant"|translate:selectedLanguage }}</span>
             </a>
         </div>
 
         {% else %}
 
         <div class="text-center py-3">
-            <a href="/register" class="btn btn-primary rounded px-3 py-2 fw-500"><span>Create a free account</span>
+            <a href="/register" class="btn btn-primary rounded px-3 py-2 fw-500"><span>{{ "Create a free account"|translate:selectedLanguage }}</span>
             </a>
         </div>
 
@@ -49,25 +48,38 @@
         </div>
     </div>
 
-    <div class="row pt-5">
+    <div class="row pt-5 pt-5">
+        <h2 class="bold">
+            Empower Your Business with Advanced AI-driven Solutions.
+        </h2>
+        <span class="py-3">
+            Quickly and efficiently explore your documents with our intuitive AI solution. Get accurate, instant answers to your most complex questions, and unlock the hidden potential of your data
+        </span>
+
+        <span>✅ Reliable and secure platform</span>
+        <span>✅ Relevant and Sourced Responses</span>
+        <span>✅ Security, privacy and regulatory compliance</span>
+
+    </div>
+
+    <div class="row">
         <div class="col-md-6">
-            <h2 class="pt-5 mt-3 bold">Features</h2>
+            <h2 class="pt-5 mt-3 bold">{{ "Features"|translate:selectedLanguage }}</h2>
 
             <div class="pt-3">
-                <h5>Hybrid Knowledge Base:</h5>
+                <h5>{{ "Hybrid Knowledge Base:"|translate:selectedLanguage }}</h5>
                 <span>ADVAISE combines the company's private databases with publicly available document databases
                     (Legifrance, EUR-Lex, ECB, EBA, ACPR, and more).
                 </span>
             </div>
             <div class="pt-5">
-                <h5>Document-Enabled Interface:</h5>
+                <h5>{{ "Document-Enabled Interface:"|translate:selectedLanguage }}</h5>
                 <span>ADVAISE extends its functionality by allowing users to not only get answers but also visualize and
                     source documents directly.
                 </span>
             </div>
             <div class="pt-5">
-                <h5>Streamline your workflow in a click:
-                </h5>
+                <h5>{{ "Streamline your workflow in a click:"|translate:selectedLanguage }}</h5>
                 <span>ADVAISE enables one-click creation of emails, Powerpoint presentations, and Word reports, plus
                     offers
                     a collaborative space for team work.
@@ -89,35 +101,31 @@
             </div>
         </div>
         <div class="col-md-6">
-            <h2 class="pt-5 mt-3 bold">Security and privacy</h2>
+            <h2 class="pt-5 mt-3 bold">{{ "Security and privacy"|translate:selectedLanguage }}</h2>
 
             <div class="pt-3">
-                <h5>Secure and dedicated platform:
-                </h5>
+                <h5>{{ "Secure and dedicated platform:"|translate:selectedLanguage }}</h5>
                 <span>The application and data are stored on company servers or with reliable Cloud Service Provider
                     (CSP)
                 </span>
             </div>
 
             <div class="pt-5">
-                <h5>Data privacy and security:
-                </h5>
+                <h5>{{ "Data privacy and security:"|translate:selectedLanguage }}</h5>
                 <span>The company's data is not shared with the providers of the LLMs. Execution takes place locally on
                     secure dedicated servers.
                 </span>
             </div>
 
             <div class="pt-5">
-                <h5>Accurate and sourced answers:
-                </h5>
+                <h5>{{ "Accurate and sourced answers:"|translate:selectedLanguage }}</h5>
                 <span>The responses are generated from the company's private Knowledge Base, making the answers more
                     accurate and relevant to the users.
                 </span>
             </div>
 
             <div class="pt-5">
-                <h5>Regulatory compliance:
-                </h5>
+                <h5>{{ "Regulatory compliance:"|translate:selectedLanguage }}</h5>
                 <span>The RAG solution adheres to regulatory standards, including the AI Act.</span>
             </div>
         </div>
