@@ -24,8 +24,8 @@
 
                     <img src="/static/main/img/logo.png" style="max-height: 135px;" alt="">
 
-                    <h2><b>Create your account</b></h2>
-                    <span class="text-muted small">Enter your details to sign up</span>
+                    <h2><b>{{ "Create your account"|translate:selectedLanguage }}</b></h2>
+                    <span class="text-muted small">{{ "Enter your details to sign up"|translate:selectedLanguage }}</span>
                     <div class="row pt-3">
                         <div class="col-md-6">
                             <div class="py-2">
@@ -59,7 +59,9 @@
                     </div>
 
                     <div class="py-2">
-                        <span class="small text-muted">By signing up, you agree to our Terms, Policy and GDPR</span>
+                        <span class="small text-muted">
+                            {{ "By signing up, you agree to our Terms, Policy and GDPR"|translate:selectedLanguage }}
+                        </span>
                     </div>
 
                     {% for field in registration_form %}
@@ -85,8 +87,10 @@
                         </button>
                     </div>
 
-                    <span class="small">Already have an account? <a href="/login" class="fw-500 text-dark">Sign
-                            in</a></span>
+                    <span class="small">{{ "Already have an account?"|translate:selectedLanguage }} <a href="/login" class="fw-500 text-dark">
+                        {{ "Sign in"|translate:selectedLanguage }}
+                        </a>
+                    </span>
 
                 </form>
             </div>
@@ -96,8 +100,9 @@
 
             <div class="rounded-lg h-100 w-100 p-5" style="background-color: #00668552">
 
-                <h2 class="p-4 bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quas id, autem
-                    voluptate.</h2>
+                <h2 class="p-4 bold">
+                    {{ "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quas id, autem voluptate."|translate:selectedLanguage }}
+                </h2>
                 <div class="px-4 pt-5 pb-4">
                     <img src="/static/main/img/auth-pages-illustration.svg" class="w-100" alt="">
                 </div>

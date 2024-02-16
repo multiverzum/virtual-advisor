@@ -10,7 +10,7 @@
 
                     <img src="/static/main/img/logo.png" style="max-height: 135px;" alt="">
 
-                    <h2><b>Welcome back</b></h2>
+                    <h2><b>{{ "Welcome back"|translate:selectedLanguage }}</b></h2>
                     <span class="text-muted small">Sign in to your account</span>
                 
                     <div class="py-2">
@@ -44,8 +44,8 @@
                         </button>
                     </div>
 
-                    <span class="small">Don't have an account? <a href="/register"
-                            class="fw-500 text-dark">Sign up</a></span>
+                    <span class="small">{{ "Don't have an account?"|translate:selectedLanguage }} <a href="/register"
+                            class="fw-500 text-dark">{{ "Sign up"|translate:selectedLanguage }}</a></span>
 
                 </form>
             </div>
@@ -55,7 +55,9 @@
 
             <div class="rounded-lg h-100 w-100 p-5" style="background-color: #00668552">
 
-                <h2 class="p-4 bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quas id, autem voluptate.</h2>
+                <h2 class="p-4 bold">
+                    {{ "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quas id, autem voluptate."|translate:selectedLanguage }}
+                </h2>
                 <div class="px-4 pt-5 pb-4">
                     <img src="/static/main/img/auth-pages-illustration.svg" class="w-100" alt="">
                 </div>
